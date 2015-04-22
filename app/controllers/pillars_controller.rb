@@ -7,10 +7,6 @@ class PillarsController < ApplicationController
     @pillars = Pillar.all
   end
 
-  # GET /pillars/1
-  # GET /pillars/1.json
-  def show
-  end
 
   # GET /pillars/new
   def new
@@ -28,8 +24,7 @@ class PillarsController < ApplicationController
 
     respond_to do |format|
       if @pillar.save
-        format.html { redirect_to @pillar, notice: 'Pillar was successfully created.' }
-        format.json { render :show, status: :created, location: @pillar }
+        format.html { redirect_to pillars_url, notice: 'Pillar was successfully created.'  }
       else
         format.html { render :new }
         format.json { render json: @pillar.errors, status: :unprocessable_entity }
@@ -42,7 +37,7 @@ class PillarsController < ApplicationController
   def update
     respond_to do |format|
       if @pillar.update(pillar_params)
-        format.html { redirect_to @pillar, notice: 'Pillar was successfully updated.' }
+        format.html { redirect_to pillars_url, notice: 'Pillar was successfully updated.' }
         format.json { render :show, status: :ok, location: @pillar }
       else
         format.html { render :edit }

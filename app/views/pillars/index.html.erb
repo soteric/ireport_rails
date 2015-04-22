@@ -1,27 +1,39 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+<div class="alert alert-success" id="notice"><%= notice %></div>
+<% end %>
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Listing Pillars</div>
+  <div class="panel-body">
+    <%= link_to '<i class="fa fa-plus-square"></i> New Pillar'.html_safe, new_pillar_path, class: "btn btn-success" %>
+  </div>
 
-<h1>Listing Pillars</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pillars.each do |pillar| %>
-      <tr>
-        <td><%= pillar.name %></td>
-        <td><%= link_to 'Show', pillar %></td>
-        <td><%= link_to 'Edit', edit_pillar_path(pillar) %></td>
-        <td><%= link_to 'Destroy', pillar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <!-- Table -->
+  <table class="table">
+    <thead>
+      <td>ID</td>
+      <td>Pillar Name</td>
+      <td>Created At</td>
+      <td>Updated At</td>
+      <td>Actions</td>
+    </thead>
+    <tbody>
+      <% @pillars.each do |pillar| %>
+        <tr>
+          <td><%= pillar.id %></td>
+          <td><%= pillar.name %></td>
+          <td><%= pillar.created_at %></td>
+          <td><%= pillar.updated_at %></td>
+          <td>
+            <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_pillar_path(pillar), class: "label label-primary" %>
+            <%= link_to '<i class="fa fa-times"></i> Remove'.html_safe, pillar, method: :delete, data: { confirm: 'It will remove all associated releases under this pillar. Are you sure you really want to remove this pillar?' }, class: "label label-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 
-<%= link_to 'New Pillar', new_pillar_path %>
+

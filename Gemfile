@@ -12,7 +12,7 @@ gem 'sqlite3'
 # ##################################################
 
 # Use Bootstrap as CSS library
-gem 'bootstrap-sass', '~> 3.3.4'
+gem 'bootstrap-sass'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 3.2'
@@ -21,10 +21,13 @@ gem 'sass-rails', '>= 3.2'
 gem 'font-awesome-rails'
 
 # Use highcharts for js chart library
-gem "highcharts-rails", "~> 3.0.0"
+gem "highcharts-rails"
 
 # Use ntlm authorization to asscess VersionOne's API
 gem 'ruby-ntlm'
+
+# Use simple form instead of the rails built-in form
+gem 'simple_form'
 
 ####################################################
 # Use Uglifier as compressor for JavaScript assets

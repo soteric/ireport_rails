@@ -1,31 +1,41 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Releases</h1>
+<% if notice %>
+<div class="alert alert-info" id="notice"><i class="fa fa-info-circle"></i> <%= notice %> <a href="" class="pull-right">X</a></div>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Scope</th>
-      <th>Pillar</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Listing Releases</div>
+  <div class="panel-body">
+    <%= link_to '<i class="fa fa-plus-square"></i> New Release'.html_safe, new_release_path, class: "btn btn-success" %>
+  </div>
 
-  <tbody>
-    <% @releases.each do |release| %>
-      <tr>
-        <td><%= release.name %></td>
-        <td><%= release.scope_id %></td>
-        <td><%= release.pillar.name %></td>
-        <td><%= link_to 'Show', release %></td>
-        <td><%= link_to 'Edit', edit_release_path(release) %></td>
-        <td><%= link_to 'Destroy', release, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Release', new_release_path %>
+  <!-- Table -->
+  <table class="table">
+    <thead>
+      <td>ID</td>
+      <td>Release Name</td>
+      <td>Scope ID</td>
+      <td>Pillar</td>
+      <td>Created At</td>
+      <td>Updated At</td>
+      <td style="width: 160px">Actions</td>
+    </thead>
+    <tbody>
+      <% @releases.each do |release| %>
+        <tr>
+          <td><%= release.id %></td>
+          <td><%= release.name %></td>
+          <td><%= release.scope_id %></td>
+          <td><%= release.pillar.name %></td>
+          <td><%= release.created_at %></td>
+          <td><%= release.updated_at %></td>
+          <td>
+            <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_release_path(release), class: "label label-primary" %>
+            <%= link_to '<i class="fa fa-times"></i> Remove'.html_safe, release, method: :delete, data: { confirm: 'Are you sure to remove this release?' }, class: "label label-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

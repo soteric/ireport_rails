@@ -28,7 +28,7 @@ class ReleasesController < ApplicationController
 
     respond_to do |format|
       if @release.save
-        format.html { redirect_to @release, notice: 'Release was successfully created.' }
+        format.html { redirect_to releases_url, notice: 'Release was successfully created.' }
         format.json { render :show, status: :created, location: @release }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ReleasesController < ApplicationController
   def update
     respond_to do |format|
       if @release.update(release_params)
-        format.html { redirect_to @release, notice: 'Release was successfully updated.' }
+        format.html { redirect_to releases_url, notice: 'Release was successfully updated.' }
         format.json { render :show, status: :ok, location: @release }
       else
         format.html { render :edit }

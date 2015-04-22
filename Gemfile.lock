@@ -127,6 +127,9 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    simple_form (3.1.0)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     sprockets (3.0.1)
       rack (~> 1.0)
     sprockets-rails (2.2.4)
@@ -160,17 +163,18 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  bootstrap-sass (~> 3.3.4)
+  bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
   font-awesome-rails
-  highcharts-rails (~> 3.0.0)
+  highcharts-rails
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.1)
   ruby-ntlm
   sass-rails (>= 3.2)
   sdoc (~> 0.4.0)
+  simple_form
   sqlite3
   thin
   turbolinks
