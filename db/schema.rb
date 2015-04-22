@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421133708) do
+ActiveRecord::Schema.define(version: 20150422092541) do
 
   create_table "pillars", force: :cascade do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150421133708) do
     t.integer  "pillar_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "fullname"
   end
 
   add_index "releases", ["pillar_id"], name: "index_releases_on_pillar_id"

@@ -5,7 +5,7 @@
 
 <div class="panel panel-primary">
   <!-- Default panel contents -->
-  <div class="panel-heading">Listing Releases</div>
+  <div class="panel-heading">Manage Releases</div>
   <div class="panel-body">
     <%= link_to '<i class="fa fa-plus-square"></i> New Release'.html_safe, new_release_path, class: "btn btn-success" %>
   </div>
@@ -14,7 +14,8 @@
   <table class="table">
     <thead>
       <td>ID</td>
-      <td>Release Name</td>
+      <td>Name</td>
+      <td>Release Full Name</td>
       <td>Scope ID</td>
       <td>Pillar</td>
       <td>Created At</td>
@@ -26,6 +27,7 @@
         <tr>
           <td><%= release.id %></td>
           <td><%= release.name %></td>
+          <td><%= release.fullname %></td>
           <td><%= release.scope_id %></td>
           <td><%= release.pillar.name %></td>
           <td><%= release.created_at %></td>
